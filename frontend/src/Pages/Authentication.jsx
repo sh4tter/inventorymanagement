@@ -1,13 +1,13 @@
-import React from 'react'
-import Login from '../Components/Login'
-import Signup from '../Components/Signup'
+import React from 'react';
+import Login from '../Components/Login';
+import Signup from '../Components/Signup';
 
-const Authentication = () => {
+const Authentication = ({ mode }) => {
   return (
-    <div>
-      <h1>Hello world!</h1>
+    <div className="auth-container">
+      {mode === 'login' ? <Login /> : <Signup />}
     </div>
-  )
-}
+  );
+};
 
-export default Authentication
+export default Authentication;
