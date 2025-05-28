@@ -19,7 +19,7 @@ export default function Signup({ setIsLogin }) {
         <input type="password" placeholder="Password" />
       </div>
 
-      <button type="submit">Sign up</button>
+      <button type="submit">SIGN UP</button>
 
       <p className="auth-toggle-text">
         Already have an account?

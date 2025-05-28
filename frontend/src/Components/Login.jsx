@@ -3,7 +3,6 @@ import React from "react";
 export default function Login({ setIsLogin }) {
   return (
     <form className="auth-form">
-      <h3>Login</h3>
       <div className="input-with-icon">
         <i className="fas fa-envelope"></i>
         <input type="email" placeholder="username@gmail.com" />
@@ -15,7 +14,7 @@ export default function Login({ setIsLogin }) {
       </div>
 
       <a href="#" className="forgot-link">Forgot Password?</a>
-      <button type="submit">Sign in</button>
+      <button type="submit">LOGIN</button>
 
       <div className="divider">or</div>
 

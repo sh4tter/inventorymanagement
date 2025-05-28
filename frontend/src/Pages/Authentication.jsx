@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Auth.css";
 import Login from "../Components/Login";
 import Signup from "../Components/Signup";
+import Logo from '../assets/logo.svg';
 
 export default function Authentication() {
   const [isLogin, setIsLogin] = useState(true);
@@ -25,7 +26,7 @@ export default function Authentication() {
     <div className="shape shape5"></div>
   </div>
       <div className="auth-glass-card">
-        <h2>Your logo</h2>
+        <img src={Logo} alt="Logo" className="logo" />
         <div className={`fade-wrapper ${fade ? "fade-in" : "fade-out"}`}>
           {isLogin ? (
             <Login setIsLogin={handleToggle} />
