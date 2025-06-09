@@ -39,9 +39,7 @@ package-lock.json
 .vite/
 
 # === Environment Files ===
-.env
-.env.*
-*.env
+
 
 # === System Files ===
 .DS_Store
