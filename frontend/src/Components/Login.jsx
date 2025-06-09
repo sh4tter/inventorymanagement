@@ -1,33 +1,27 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
 
-const Login = () => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: '', password: '' });
-
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:8000/auth/login', formData);
-      localStorage.setItem('token', res.data.access_token);
-      navigate('/dashboard'); // replace with your actual route
-    } catch (err) {
-      alert('Login failed');
-    }
-  };
-
+export default function Login({ setIsLogin }) {
   return (
-    <form onSubmit={handleSubmit} className="auth-form">
-      <h2>Login</h2>
-      <input name="email" placeholder="Email" onChange={handleChange} required />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-      <button type="submit">Login</button>
+    <form className="auth-form">
+      <div className="input-with-icon">
+        <i className="fas fa-envelope"></i>
+        <input type="email" placeholder="username@gmail.com" />
+      </div>
+
+      <div className="input-with-icon">
+        <i className="fas fa-lock"></i>
+        <input type="password" placeholder="Password" />
+      </div>
+
+      <a href="#" className="forgot-link">Forgot Password?</a>
+      <button type="submit">LOGIN</button>
+
+      <div className="divider">or</div>
+
+      <p className="auth-toggle-text">
+        Don’t have an account yet?
+        <span onClick={setIsLogin}>Sign up for free</span>
+      </p>
     </form>
   );
-};
-
-export default Login;
+}

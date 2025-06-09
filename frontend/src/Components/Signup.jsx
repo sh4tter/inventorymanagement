@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
 
-const Signup = () => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
-
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:8000/auth/signup', formData);
-      navigate('/login');
-    } catch (err) {
-      alert('Signup failed');
-    }
-  };
-
+export default function Signup({ setIsLogin }) {
   return (
-    <form onSubmit={handleSubmit} className="auth-form">
-      <h2>Signup</h2>
-      <input name="name" placeholder="Name" onChange={handleChange} required />
-      <input name="email" placeholder="Email" onChange={handleChange} required />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-      <button type="submit">Sign Up</button>
+    <form className="auth-form">
+      <h3>Create Account</h3>
+      <div className="input-with-icon">
+        <i className="fas fa-user"></i>
+        <input type="text" placeholder="Full Name" />
+      </div>
+
+      <div className="input-with-icon">
+        <i className="fas fa-envelope"></i>
+        <input type="email" placeholder="Email" />
+      </div>
+
+      <div className="input-with-icon">
+        <i className="fas fa-lock"></i>
+        <input type="password" placeholder="Password" />
+      </div>
+
+      <button type="submit">SIGN UP</button>
+
+      <p className="auth-toggle-text">
+        Already have an account?
+        <span onClick={setIsLogin}>Login</span>
+      </p>
     </form>
   );
-};
-
-export default Signup;
+}
